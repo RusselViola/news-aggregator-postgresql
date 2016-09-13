@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Teams Page</title>
+    <link rel='stylesheet' href='/home.css'>
+  </head>
+
+  <body>
+    <h1>Post an Article!</h1>
+    <% if @error %>
+      <h3> Error! Put in values for all three!</h3>
+    <% end %>
+    <% if @input_error %>
+      <h3> Error! That website does not exist!</h3>
+      <% end %>
+    <% if @char_error %>
+      <h3> Error! Description must be 20 characters or more!</h3>
+      <% end  %>
+    <form action='/articles/new' method='post'>
+      <label for='url'>URL for Article</label>
+      <input type='text' id='url' name='article_url' value='<%=@url%>'>
+
+      <label for='title'>Article Title</label>
+      <input type='text' id='title' name='article_title' value='<%=@title%>'>
+
+      <label for='description'>Description</label>
+      <input type='text' id='description' name='article_description' value='<%=@description%>'>
+      <input type='submit' value="Submit">
+    </form>
+  </body>
+</html>
